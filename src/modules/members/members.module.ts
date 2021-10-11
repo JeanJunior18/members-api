@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { MembersRestController } from 'src/modules/members/userInterfaces/restController/members-rest.controller';
 import {
   Member,
   MemberSchema,
@@ -10,6 +11,6 @@ import {
     MongooseModule.forFeature([{ name: Member.name, schema: MemberSchema }]),
   ],
   providers: [],
-  controllers: [],
+  controllers: [MembersRestController],
 })
 export class MembersModule {}
