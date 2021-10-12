@@ -44,8 +44,9 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
   }
 
   async count(data: GetMemberFilterDto) {
-    const { name, email, birthDate } = data;
-    return this.memberModel.countDocuments({ name, email, birthDate });
+    delete data.limit;
+    delete data.offset;
+    return this.memberModel.countDocuments(Object.assign({}, data));
   }
 }
 
