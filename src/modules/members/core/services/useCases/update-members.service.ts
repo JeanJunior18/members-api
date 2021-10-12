@@ -3,7 +3,7 @@ import { MemberRepositoryPort } from 'src/modules/members/core/ports/member-repo
 import { UpdateMemberDto } from 'src/modules/members/userInterfaces/dto/update-member.dto';
 
 @Injectable()
-export class UpdateMembersService {
+export class UpdateMemberService {
   constructor(private readonly memberRepository: MemberRepositoryPort) {}
 
   async execute(id: string, data: UpdateMemberDto) {

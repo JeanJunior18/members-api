@@ -1,19 +1,30 @@
-import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import {
-  CreateMembersService,
-  GetMembersService,
-} from 'src/modules/members/core/services/useCases';
-import { UpdateMembersService } from 'src/modules/members/core/services/useCases/update-members.service';
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
 import { CreateMemberDto } from 'src/modules/members/userInterfaces/dto/create-member.dto';
 import { GetMemberFilterDto } from 'src/modules/members/userInterfaces/dto/get-member-filter.dto';
 import { UpdateMemberDto } from 'src/modules/members/userInterfaces/dto/update-member.dto';
+import {
+  CreateMembersService,
+  DeleteMemberService,
+  GetMembersService,
+  UpdateMemberService,
+} from 'src/modules/members/core/services/useCases';
 
 @Controller('members')
 export class MembersRestController {
   constructor(
     private readonly getMembersService: GetMembersService,
     private readonly createMembersService: CreateMembersService,
-    private readonly updateMembersService: UpdateMembersService,
+    private readonly updateMemberService: UpdateMemberService,
+    private readonly deleteMemberService: DeleteMemberService,
   ) {}
 
   @Get('')
@@ -28,6 +39,11 @@ export class MembersRestController {
 
   @Put(':id')
   update(@Param('id') id: string, @Body() data: UpdateMemberDto) {
-    return this.updateMembersService.execute(id, data);
+    return this.updateMemberService.execute(id, data);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string) {
+    return this.deleteMemberService.execute(id);
   }
 }

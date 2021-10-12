@@ -9,8 +9,9 @@ import { MemberRepositoryProvider } from 'src/infrastructure/adapters';
 import {
   GetMembersService,
   CreateMembersService,
+  UpdateMemberService,
+  DeleteMemberService,
 } from 'src/modules/members/core/services/useCases';
-import { UpdateMembersService } from 'src/modules/members/core/services/useCases/update-members.service';
 
 @Module({
   imports: [
@@ -21,7 +22,8 @@ import { UpdateMembersService } from 'src/modules/members/core/services/useCases
     MemberRepositoryProvider,
     GetMembersService,
     CreateMembersService,
-    UpdateMembersService,
+    UpdateMemberService,
+    DeleteMemberService,
   ],
 })
 export class MembersModule {}
