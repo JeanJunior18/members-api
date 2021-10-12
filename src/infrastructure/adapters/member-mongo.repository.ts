@@ -19,7 +19,10 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
 
   async find(query?: GetMemberFilterDto) {
     const { limit, offset, ...filter } = query;
-    return this.memberModel.find(filter).limit(limit).skip(offset);
+    return this.memberModel
+      .find(filter)
+      .limit(Number(limit))
+      .skip(Number(offset));
   }
 
   async findByEmail(email: string) {
