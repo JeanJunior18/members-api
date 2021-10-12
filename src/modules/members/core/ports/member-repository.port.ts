@@ -6,6 +6,7 @@ import { GetMemberFilterDto } from 'src/modules/members/userInterfaces/dto/get-m
 
 export abstract class MemberRepositoryPort {
   find: (query?: PaginateFilterDto) => Promise<Member[]>;
+  findByEmail: (email: string) => Promise<Member>;
   create: (data: CreateMemberDto) => Promise<Member>;
   update: (id: string, data: UpdateMemberDto) => Promise<Member>;
   delete: (id: string) => Promise<void>;

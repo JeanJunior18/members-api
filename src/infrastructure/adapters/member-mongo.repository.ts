@@ -22,6 +22,10 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
     return this.memberModel.find(filter).limit(limit).skip(offset);
   }
 
+  async findByEmail(email: string) {
+    return this.memberModel.findOne({ email });
+  }
+
   async create(data: CreateMemberDto) {
     const product = new this.memberModel(data);
     return product.save();

@@ -5,14 +5,21 @@ import {
   Member,
   MemberSchema,
 } from 'src/modules/members/core/domain/model/member.entity';
-import { MemberRepositoryProvider } from 'src/infrastructure/adapters/member-mongo.repository';
-import { GetMembersService } from 'src/modules/members/core/services/useCases/get-members.service';
+import { MemberRepositoryProvider } from 'src/infrastructure/adapters';
+import {
+  GetMembersService,
+  CreateMembersService,
+} from 'src/modules/members/core/services/useCases';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Member.name, schema: MemberSchema }]),
   ],
   controllers: [MembersRestController],
-  providers: [MemberRepositoryProvider, GetMembersService],
+  providers: [
+    MemberRepositoryProvider,
+    GetMembersService,
+    CreateMembersService,
+  ],
 })
 export class MembersModule {}
