@@ -10,6 +10,7 @@ import {
   GetMembersService,
   CreateMembersService,
 } from 'src/modules/members/core/services/useCases';
+import { UpdateMembersService } from 'src/modules/members/core/services/useCases/update-members.service';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import {
     MemberRepositoryProvider,
     GetMembersService,
     CreateMembersService,
+    UpdateMembersService,
   ],
 })
 export class MembersModule {}
