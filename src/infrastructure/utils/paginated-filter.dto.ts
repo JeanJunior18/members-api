@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsNumberString, IsOptional } from 'class-validator';
+import { IsNumberString, IsOptional } from 'class-validator';
 
 export abstract class PaginateFilterDto {
   @ApiProperty({ required: false, default: 10 })
@@ -10,6 +10,5 @@ export abstract class PaginateFilterDto {
   @ApiProperty({ required: false, default: 0 })
   @IsOptional()
   @IsNumberString()
-  @IsNumber()
   offset?: number;
 }
