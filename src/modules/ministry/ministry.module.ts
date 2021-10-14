@@ -5,7 +5,10 @@ import {
   Ministry,
   MinistrySchema,
 } from 'src/modules/ministry/core/domain/model/ministry.entity';
-import { CreateMinistryService } from 'src/modules/ministry/core/services/create-ministry.service';
+import {
+  CreateMinistryService,
+  GetMinistryService,
+} from 'src/modules/ministry/core/services';
 import { MinistryController } from 'src/modules/ministry/userInterface/restController/ministry-rest.controller';
 
 @Module({
@@ -15,6 +18,10 @@ import { MinistryController } from 'src/modules/ministry/userInterface/restContr
     ]),
   ],
   controllers: [MinistryController],
-  providers: [MinistryRepositoryProvider, CreateMinistryService],
+  providers: [
+    MinistryRepositoryProvider,
+    CreateMinistryService,
+    GetMinistryService,
+  ],
 })
 export class MinistryModule {}

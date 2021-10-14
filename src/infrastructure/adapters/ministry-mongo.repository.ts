@@ -18,7 +18,12 @@ export class MinistryMongoRepositoryAdapter implements MinistryRepositoryPort {
 
   async find(query?: PaginateFilterDto) {
     const { limit, offset } = query;
-    return this.memberModel.find().limit(Number(limit)).skip(Number(offset));
+    return this.memberModel
+      .find()
+      .limit(Number(limit))
+      .skip(Number(offset))
+      .populate('leader')
+      .populate('members');
   }
 
   async findByEmail(email: string) {

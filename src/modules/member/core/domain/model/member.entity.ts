@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Exclude } from 'class-transformer';
+import { Document } from 'mongoose';
 
 @Schema({ collection: 'Member' })
 export class Member {
