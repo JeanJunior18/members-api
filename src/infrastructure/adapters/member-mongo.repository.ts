@@ -30,8 +30,7 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
   }
 
   async create(data: CreateMemberDto) {
-    const product = new this.memberModel(data);
-    return product.save();
+    return this.memberModel.create(data);
   }
 
   async update(id: string, data: UpdateMemberDto) {
