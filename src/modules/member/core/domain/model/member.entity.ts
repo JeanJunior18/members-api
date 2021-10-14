@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Exclude } from 'class-transformer';
 
-@Schema({ collection: 'members' })
+@Schema({ collection: 'Member' })
 export class Member {
   @Prop()
   name: string;

@@ -9,15 +9,15 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiProperty, ApiResponse, ApiOperation } from '@nestjs/swagger';
-import { CreateMemberDto } from 'src/modules/members/userInterfaces/dto/create-member.dto';
-import { GetMemberFilterDto } from 'src/modules/members/userInterfaces/dto/get-member-filter.dto';
-import { UpdateMemberDto } from 'src/modules/members/userInterfaces/dto/update-member.dto';
+import { CreateMemberDto } from 'src/modules/member/userInterfaces/dto/create-member.dto';
+import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
+import { UpdateMemberDto } from 'src/modules/member/userInterfaces/dto/update-member.dto';
 import {
   CreateMembersService,
   DeleteMemberService,
   GetMembersService,
   UpdateMemberService,
-} from 'src/modules/members/core/services/useCases';
+} from 'src/modules/member/core/services/useCases';
 
 @Controller('members')
 export class MembersRestController {

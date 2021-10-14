@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PaginationPort } from 'src/infrastructure/ports/pagination.port';
-import { Member } from 'src/modules/members/core/domain/model/member.entity';
-import { MemberRepositoryPort } from 'src/modules/members/core/ports/member-repository.port';
-import { GetMemberFilterDto } from 'src/modules/members/userInterfaces/dto/get-member-filter.dto';
+import { Member } from 'src/modules/member/core/domain/model/member.entity';
+import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
+import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
 
 @Injectable()
 export class GetMembersService {

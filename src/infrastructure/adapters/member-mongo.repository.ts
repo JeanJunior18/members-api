@@ -4,11 +4,11 @@ import { Model } from 'mongoose';
 import {
   Member,
   MemberDocument,
-} from 'src/modules/members/core/domain/model/member.entity';
-import { MemberRepositoryPort } from 'src/modules/members/core/ports/member-repository.port';
-import { CreateMemberDto } from 'src/modules/members/userInterfaces/dto/create-member.dto';
-import { GetMemberFilterDto } from 'src/modules/members/userInterfaces/dto/get-member-filter.dto';
-import { UpdateMemberDto } from 'src/modules/members/userInterfaces/dto/update-member.dto';
+} from 'src/modules/member/core/domain/model/member.entity';
+import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
+import { CreateMemberDto } from 'src/modules/member/userInterfaces/dto/create-member.dto';
+import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
+import { UpdateMemberDto } from 'src/modules/member/userInterfaces/dto/update-member.dto';
 
 @Injectable()
 export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {

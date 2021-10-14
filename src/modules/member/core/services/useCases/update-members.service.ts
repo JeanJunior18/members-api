@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { MemberRepositoryPort } from 'src/modules/members/core/ports/member-repository.port';
-import { UpdateMemberDto } from 'src/modules/members/userInterfaces/dto/update-member.dto';
+import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
+import { UpdateMemberDto } from 'src/modules/member/userInterfaces/dto/update-member.dto';
 
 @Injectable()
 export class UpdateMemberService {

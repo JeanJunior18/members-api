@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MemberRepositoryPort } from 'src/modules/members/core/ports/member-repository.port';
+import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
 
 @Injectable()
 export class DeleteMemberService {

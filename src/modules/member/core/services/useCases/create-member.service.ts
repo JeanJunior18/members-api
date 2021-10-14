@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { MemberRepositoryPort } from 'src/modules/members/core/ports/member-repository.port';
-import { CreateMemberDto } from 'src/modules/members/userInterfaces/dto/create-member.dto';
+import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
+import { CreateMemberDto } from 'src/modules/member/userInterfaces/dto/create-member.dto';
 
 @Injectable()
 export class CreateMembersService {
