@@ -8,7 +8,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { ApiProperty, ApiResponse, ApiOperation } from '@nestjs/swagger';
+import { ApiOperation } from '@nestjs/swagger';
 import { CreateMemberDto } from 'src/modules/member/userInterfaces/dto/create-member.dto';
 import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
 import { UpdateMemberDto } from 'src/modules/member/userInterfaces/dto/update-member.dto';

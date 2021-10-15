@@ -22,7 +22,8 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
     return this.memberModel
       .find(filter)
       .limit(Number(limit))
-      .skip(Number(offset));
+      .skip(Number(offset))
+      .populate('ministries');
   }
 
   async findByEmail(email: string) {

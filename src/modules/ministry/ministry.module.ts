@@ -8,6 +8,7 @@ import {
 import {
   CreateMinistryService,
   GetMinistryService,
+  UpdateMinistryService,
 } from 'src/modules/ministry/core/services';
 import { MinistryController } from 'src/modules/ministry/userInterface/restController/ministry-rest.controller';
 
@@ -22,6 +23,7 @@ import { MinistryController } from 'src/modules/ministry/userInterface/restContr
     MinistryRepositoryProvider,
     CreateMinistryService,
     GetMinistryService,
+    UpdateMinistryService,
   ],
 })
 export class MinistryModule {}

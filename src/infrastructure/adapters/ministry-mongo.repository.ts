@@ -8,6 +8,7 @@ import {
 } from 'src/modules/ministry/core/domain/model/ministry.entity';
 import { MinistryRepositoryPort } from 'src/modules/ministry/core/ports/ministry-repository.port';
 import { CreateMinistryDto } from 'src/modules/ministry/userInterface/dto/create-ministry.dto';
+import { UpdateMinistryDto } from 'src/modules/ministry/userInterface/dto/update-ministry.dto';
 
 @Injectable()
 export class MinistryMongoRepositoryAdapter implements MinistryRepositoryPort {
@@ -22,8 +23,7 @@ export class MinistryMongoRepositoryAdapter implements MinistryRepositoryPort {
       .find()
       .limit(Number(limit))
       .skip(Number(offset))
-      .populate('leader')
-      .populate('members');
+      .populate(['leader', 'members']);
   }
 
   async findByEmail(email: string) {
@@ -35,9 +35,11 @@ export class MinistryMongoRepositoryAdapter implements MinistryRepositoryPort {
     return ministry.save();
   }
 
-  async update(id: string, data: string) {
-    await this.memberModel.updateOne({ _id: id });
-    return this.memberModel.findOne({ _id: id });
+  async update(id: string, data: UpdateMinistryDto) {
+    await this.memberModel.updateOne({ _id: id }, data);
+    return this.memberModel
+      .findOne({ _id: id })
+      .populate(['leader', 'members']);
   }
 
   async delete(id: string) {
