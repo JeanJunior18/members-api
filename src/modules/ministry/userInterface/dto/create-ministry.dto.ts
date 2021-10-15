@@ -1,5 +1,5 @@
 export class CreateMinistryDto {
   name: string;
-  leaderId: string;
-  membersId: string[];
+  leader: string;
+  members: string[];
 }

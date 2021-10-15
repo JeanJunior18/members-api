@@ -8,10 +8,10 @@ export class Ministry {
   name: string;
 
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Member' })
-  leader: Member;
+  leader: string | Member;
 
   @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Member' }])
-  members: Member[];
+  members: string[] | Member[];
 }
 
 export type MinistryDocument = Ministry & mongoose.Document;
