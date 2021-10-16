@@ -6,8 +6,10 @@ import {
   MemberDocument,
 } from 'src/modules/member/core/domain/model/member.entity';
 import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
+import { AddMemberMinistryDto } from 'src/modules/member/userInterfaces/dto/add-member-ministry.dto';
 import { CreateMemberDto } from 'src/modules/member/userInterfaces/dto/create-member.dto';
 import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
+import { MemberPopulateDto } from 'src/modules/member/userInterfaces/dto/member-populate.dto';
 import { UpdateMemberDto } from 'src/modules/member/userInterfaces/dto/update-member.dto';
 
 @Injectable()
@@ -23,7 +25,7 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
       .find(filter)
       .limit(Number(limit))
       .skip(Number(offset))
-      .populate('ministries');
+      .populate('ministries', 'name');
   }
 
   async findByEmail(email: string) {
@@ -47,6 +49,17 @@ export class MemberMongoRepositoryAdapter implements MemberRepositoryPort {
     delete data.limit;
     delete data.offset;
     return this.memberModel.countDocuments(Object.assign({}, data));
+  }
+
+  async addMemberToMinistry({ memberId, ministryId }: AddMemberMinistryDto) {
+    await this.memberModel.updateOne(
+      { _id: memberId },
+      {
+        $addToSet: { ministries: ministryId },
+      },
+    );
+
+    return this.memberModel.findOne({ _id: memberId });
   }
 }
 

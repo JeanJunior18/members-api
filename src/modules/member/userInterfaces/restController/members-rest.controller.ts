@@ -8,7 +8,11 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
-import { ApiOperation } from '@nestjs/swagger';
+import {
+  ApiOperation,
+  ApiResponse,
+  ApiResponseProperty,
+} from '@nestjs/swagger';
 import { CreateMemberDto } from 'src/modules/member/userInterfaces/dto/create-member.dto';
 import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
 import { UpdateMemberDto } from 'src/modules/member/userInterfaces/dto/update-member.dto';
@@ -18,6 +22,9 @@ import {
   GetMembersService,
   UpdateMemberService,
 } from 'src/modules/member/core/services/useCases';
+import { MemberPopulateDto } from 'src/modules/member/userInterfaces/dto/member-populate.dto';
+import { PaginationPort } from 'src/infrastructure/ports/pagination.port';
+import { GetMemberResponseDto } from 'src/modules/member/userInterfaces/dto/get-member-response.dto';
 
 @Controller('members')
 export class MembersRestController {
@@ -28,7 +35,10 @@ export class MembersRestController {
     private readonly deleteMemberService: DeleteMemberService,
   ) {}
 
-  @ApiOperation({ summary: 'List members' })
+  @ApiOperation({
+    summary: 'List members',
+  })
+  @ApiResponse({ type: GetMemberResponseDto })
   @Get('')
   list(@Query() query: GetMemberFilterDto) {
     return this.getMembersService.execute(query);

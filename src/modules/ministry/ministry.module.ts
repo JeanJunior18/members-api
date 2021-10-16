@@ -1,11 +1,19 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MinistryRepositoryProvider } from 'src/infrastructure/adapters';
+import {
+  MemberRepositoryProvider,
+  MinistryRepositoryProvider,
+} from 'src/infrastructure/adapters';
+import {
+  Member,
+  MemberSchema,
+} from 'src/modules/member/core/domain/model/member.entity';
 import {
   Ministry,
   MinistrySchema,
 } from 'src/modules/ministry/core/domain/model/ministry.entity';
 import {
+  AddMemberService,
   CreateMinistryService,
   GetMinistryService,
   UpdateMinistryService,
@@ -16,14 +24,17 @@ import { MinistryController } from 'src/modules/ministry/userInterface/restContr
   imports: [
     MongooseModule.forFeature([
       { name: Ministry.name, schema: MinistrySchema },
+      { name: Member.name, schema: MemberSchema },
     ]),
   ],
   controllers: [MinistryController],
   providers: [
     MinistryRepositoryProvider,
+    MemberRepositoryProvider,
     CreateMinistryService,
     GetMinistryService,
     UpdateMinistryService,
+    AddMemberService,
   ],
 })
 export class MinistryModule {}

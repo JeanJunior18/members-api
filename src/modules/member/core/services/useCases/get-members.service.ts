@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PaginationPort } from 'src/infrastructure/ports/pagination.port';
-import { Member } from 'src/modules/member/core/domain/model/member.entity';
 import { MemberRepositoryPort } from 'src/modules/member/core/ports/member-repository.port';
 import { GetMemberFilterDto } from 'src/modules/member/userInterfaces/dto/get-member-filter.dto';
+import { MemberPopulateDto } from 'src/modules/member/userInterfaces/dto/member-populate.dto';
 
 @Injectable()
 export class GetMembersService {
@@ -12,7 +12,7 @@ export class GetMembersService {
     limit,
     offset,
     ...filter
-  }: GetMemberFilterDto): Promise<PaginationPort<Member>> {
+  }: GetMemberFilterDto): Promise<PaginationPort<MemberPopulateDto>> {
     limit = limit || 10;
     offset = offset || 0;
 

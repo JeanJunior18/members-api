@@ -1,4 +1,4 @@
-export abstract class PaginationPort<T> {
+export class PaginationPort<T> {
   constructor(data: PaginationPort<T>) {
     Object.assign(this, data);
   }
