@@ -7,9 +7,6 @@ import { PopulateResponseDto } from 'src/infrastructure/utils/populate-response.
 @Schema({ collection: 'Member' })
 export class Member {
   @Prop()
-  _id: string;
-
-  @Prop()
   name: string;
 
   @Prop()
